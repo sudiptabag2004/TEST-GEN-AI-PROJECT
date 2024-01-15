@@ -80,13 +80,16 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });//
 
-var navLinks=document.getElementById("navLinks");
-function showMenu(){
-  navLinks.style.right="0";
+var navLinks = document.getElementById("navLinks");
+
+function showMenu() {
+  navLinks.classList.add("show");
 }
-function hideMenu(){
-  navLinks.style.right="-200px";
+
+function hideMenu() {
+  navLinks.classList.remove("show");
 }
+
 
 
 
