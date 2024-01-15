@@ -391,7 +391,8 @@ a {
   width: 100%;
   background: rgba( 255, 255, 255, 0.1 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
- 
+  backdrop-filter: blur( 3.5px );
+  -webkit-backdrop-filter: blur( 3.5px );
   border-radius: 10px;
   line-height: 50px;
   color: white;
@@ -416,7 +417,8 @@ a {
   background: rgba(255, 255, 255, 0.26);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  
+  backdrop-filter: blur(10.4px);
+  -webkit-backdrop-filter: blur(10.4px);
   border: 1px solid rgba(255, 255, 255, 0.29);
   color: white;
   transform: rotateY(180deg);
@@ -736,20 +738,25 @@ footer{
 .back {
   /* ... existing styles ... */
 
-  /* Remove or adjust the backdrop-filter property */
-  backdrop-filter: none; 
+  /* Add a semi-transparent overlay */
+  position: absolute;
+  z-index: 1;
 }
 
-/* Fallback for Safari/iOS */
-@supports not ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
-  .front,
-  .back {
-    /* Fallback styles for Safari/iOS */
-    background: rgba(255, 255, 255, 0.1); /* Adjust the background color */
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    /* ... other fallback styles ... */
-  }
+.front::before,
+.back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.1); /* Adjust the alpha value as needed */
+  z-index: -1;
 }
+
+/* Other existing styles... */
+
 
 
 
