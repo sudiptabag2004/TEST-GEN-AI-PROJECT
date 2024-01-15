@@ -273,7 +273,7 @@ a {
     border-radius: 5px;
   position: fixed;
   transform: rotate(-15deg);
-  width: 250px;
+  width: 100%;
   }
 
   .content {
